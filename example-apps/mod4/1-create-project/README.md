@@ -42,7 +42,14 @@ cd next-hello
 npm run dev
 ```
 
-ブラウザから http で ポート 3000番でアクセス
+* VS Code Server の EC2 インスタンスのパブリック IPv4 DNS を取得するコマンド
+```
+TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`  && curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/public-hostname
+```
+
+
+* ブラウザから http で ポート 3000番でアクセス
+
 例
 http://ec2-12-34-123-12.ap-northeast-1.compute.amazonaws.com:3000
 
