@@ -2,49 +2,49 @@
 
 ---
 ## AWS SAM でバックエンドリソースの作成する
- 1. example-apps/mod5/1-sam/README.md の手順を実施する
+
 
 ---
 ## S3 バケットに商品画像をアップロードする
 
-* AWS SDK for Python (boto3) のインストール
+1. AWS SDK for Python (boto3) のインストール
 
-```
-cd  ~/environment/example-apps/mod5/2-upload-images
-```
+    ```
+    cd  ~/environment/example-apps/mod5/2-upload-images
+    ```
 
-```
-pip install boto3
-```
+    ```
+    pip install boto3
+    ```
 
-* アップロードの実行
+1. アップロードの実行
     - 下記で **BUCKET_NAME** の部分を AWS SAM で作成したバケット名に変更する
 
-```
-python3 s3_image_uploader.py image BUKET_NAME --prefix ''
-```
+    ```
+    python3 s3_image_uploader.py image BUKET_NAME --prefix ''
+    ```
 
-例
-```
-python3 s3_image_uploader.py image tnobep-backend-image --prefix ''
-```
+    例
+    ```
+    python3 s3_image_uploader.py image tnobep-backend-image --prefix ''
+    ```
 
 ---
 ## DynamoDB テーブルに商品情報を格納する
 
-* ~/environment/example-apps/mod5/3-put-data/data_loader.py を開きます。
+1. ~/environment/example-apps/mod5/3-put-data/data_loader.py を開きます。
 
-* your_bucket 変数に AWS SAM の Outputs の ItemImageURL の値から **https:// を除いた文字列**を貼り付ける
+1. your_bucket 変数に AWS SAM の Outputs の ItemImageURL の値から **https:// を除いた文字列**を貼り付ける
 
-* AWS SDK for Python (boto3) はインストール済の前提
+1. AWS SDK for Python (boto3) はインストール済の前提
 
-```
-cd  ~/environment/example-apps/mod5/3-put-data
-```
+  ```
+  cd  ~/environment/example-apps/mod5/3-put-data
+  ```
 
-```
-python3 data_loader.py 
-```
+  ```
+  python3 data_loader.py 
+  ```
 
 
 ---
@@ -54,7 +54,7 @@ python3 data_loader.py
 npx  create-next-app@15.3.0 next-serverless
 ```
     
-* 下記のように選択。（Yes と No は横矢印キーで選択）
+1. 下記のように選択。（Yes と No は横矢印キーで選択）
     - "OK to proceed?" で Enter 
     - ? Would you like to use TypeScript? › No / Yes で **Yes**
     - ? Would you like to use ESLint? › No / Yes で **No**
@@ -65,11 +65,11 @@ npx  create-next-app@15.3.0 next-serverless
     - ? Would you like to customize the import alias (`@/*` by default)? › No / Yes で **No**
     
 
-* プロジェクトの実行
+1. プロジェクトの実行
 
-```
-cd ~/environment/next-serverless
-```
+  ```
+  cd ~/environment/next-serverless
+  ```
 
 ---
 ## Next.js のページの作成
