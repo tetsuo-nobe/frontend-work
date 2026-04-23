@@ -124,7 +124,7 @@ npx  create-next-app@15.3.0 next-serverless
 
 1. 下記のファイルを next-serverless/src へコピーする
    - example-apps/mod5/4-frontend/src/utils フォルダごと
-   - 
+
 1. next-serverless プロジェクトで、下記のファイルを削除する
     - src/app/globals.css
     - src/app/layout.tsx
