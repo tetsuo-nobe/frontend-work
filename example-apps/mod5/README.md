@@ -32,7 +32,7 @@
 ---
 ## DynamoDB テーブルに商品情報を格納する
 
-1. ~/environment/example-apps/mod5/3-put-data/data_loader.py を開きます。
+1. ~/environment/example-apps/mod5/3-put-data/data_loader.py を開く
 
 1. your_bucket 変数に AWS SAM の Outputs の ItemImageURL の値から **https:// を除いた文字列**を貼り付ける
 
