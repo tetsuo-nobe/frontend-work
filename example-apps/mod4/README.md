@@ -121,8 +121,8 @@ http://ec2-12-34-123-12.ap-northeast-1.compute.amazonaws.com:3000
     - src/app/page.tsx
 
 1. 下記のファイルを next-hello/src/app へコピーする
-   - example-apps/mod4/3-components/api フォルダごと
-   - example-apps/mod4/3-components/page.tsx
+   - example-apps/mod4/4-backend/api フォルダごと
+   - example-apps/mod4/4-backend/page.tsx
 
 1. ターミナルから下記のコマンドで next-hello プロジェクトを実行する
 
