@@ -135,7 +135,6 @@ npx  create-next-app@15.3.0 next-serverless
 1. 下記のファイルを next-hello/src/app へコピーする
    - example-apps/mod5/4-frontend/src/app/globals.css
    - example-apps/mod5/4-frontend/src/app/layout.tsx
-   - example-apps/mod5/4-frontend/src/app/page.module.css
    - example-apps/mod5/4-frontend/src/app/page.tsx
 
 1. ターミナルから下記のコマンドで next-serverless プロジェクトを実行する
