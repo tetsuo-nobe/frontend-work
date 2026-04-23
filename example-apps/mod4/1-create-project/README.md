@@ -59,7 +59,7 @@ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metad
 ```
 
 
-* ブラウザから http で ポート 3000番でアクセス
+* インスタンスのパブリック IPv4 DNS の 3000番ポートにブラウザから http でアクセス
 
 例
 http://ec2-12-34-123-12.ap-northeast-1.compute.amazonaws.com:3000
