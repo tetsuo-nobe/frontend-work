@@ -85,12 +85,6 @@ npx  create-next-app@15.3.0 next-serverless
     - ? Would you like to customize the import alias (`@/*` by default)? › No / Yes で **No**
     
 
-1. プロジェクトの実行
-
-  ```
-  cd ~/environment/next-serverless
-  ```
-
 ---
 ## Next.js のページの作成
 
@@ -139,9 +133,13 @@ npx  create-next-app@15.3.0 next-serverless
 
 1. ターミナルから下記のコマンドで next-serverless プロジェクトを実行する
 
-    ```
-    npm run dev
-    ```
+  ```
+  cd ~/environment/next-serverless
+  ```
+
+  ```
+  npm run dev
+  ```
 1. ブラウザで、Code Server のインスタンスの DNS に http で 3000番ポートにアクセスする
    - 商品の一覧が表示され、検索もできることを確認する
 
