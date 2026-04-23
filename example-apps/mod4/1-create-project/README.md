@@ -31,6 +31,7 @@ npx -v
 ```
 npx  create-next-app@15.3.0 next-hello
 ```
+    
     - 下記のように選択。（Yes と No は横矢印キーで選択）
     - "OK to proceed?" で Enter 
     - ? Would you like to use TypeScript? › No / Yes で **Yes**
