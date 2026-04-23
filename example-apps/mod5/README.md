@@ -1,18 +1,42 @@
 # サーバーレスアプリケーションのフロントエンドの作成
 
+---
 ## AWS SAM でバックエンドリソースの作成する
  1. example-apps/mod5/1-sam/README.md の手順を実施する
 
+---
 ## S3 バケットに商品画像をアップロードする
  1. example-apps/mod5/2-upload-images/README.md の手順を実施する
 
+---
 ## DynamoDB テーブルに商品情報を格納する
 1. example-apps/mod5/3-put-data/README.md の手順を実施する
 
+---
 ## Next.js で新しいプロジェクトを作成する
 
+```
+npx  create-next-app@15.3.0 next-serverless
+```
+    
+* 下記のように選択。（Yes と No は横矢印キーで選択）
+    - "OK to proceed?" で Enter 
+    - ? Would you like to use TypeScript? › No / Yes で **Yes**
+    - ? Would you like to use ESLint? › No / Yes で **No**
+    - ? Would you like to use Tailwind CSS? › No / Yes で **No**
+    - ? Would you like your code inside a `src/` directory? › No / Yes で **Yes**
+    - ? Would you like to use App Router? (recommended) › No / Yes で **Yes**
+    - ? Would you like to use Turbopack for `next dev`? › No / Yes で **No**
+    - ? Would you like to customize the import alias (`@/*` by default)? › No / Yes で **No**
+    
 
-## Next.js の
+* プロジェクトの実行
+
+```
+cd ~/environment/next-serverless
+```
+
+## フロントエンドの編集
 
 1. next-serverless プロジェクトで、下記のファイルを削除する
     - src/app/globals.css
