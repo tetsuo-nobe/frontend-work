@@ -128,8 +128,9 @@ npx  create-next-app@15.3.0 next-serverless
 1. next-serverless プロジェクトで、下記のファイルを削除する
     - src/app/globals.css
     - src/app/layout.tsx
-    - src/app/page.tsx
     - src/app/page.module.css
+    - src/app/page.tsx
+
 
 1. 下記のファイルを next-hello/src/app へコピーする
    - example-apps/mod5/4-frontend/api フォルダごと
