@@ -96,13 +96,15 @@ npx  create-next-app@15.3.0 next-serverless
 
 ### 開発環境の環境変数とオリジンの設定
 
-1. `.env.development` という名前のファイルを next-serverless へ作成する。
+1. `.env.development` という名前のファイルを next-serverless フォルダ直下へ作成する。
 
 1. .env.development の NEXT_PUBLIC_URL に AWS SAM の出力の NextServerlessBackendAPI の値を設定する
-    - 例: NEXT_PUBLIC_URL=https://ag9yn6s89e.execute-api.ap-northeast-1.amazonaws.com
+    - 例:
+    - ```
+      NEXT_PUBLIC_URL=https://ag9yn6s89e.execute-api.ap-northeast-1.amazonaws.com
+      ```
 
 1. 下記のファイルを next-serverless へコピーする
-   - example-apps/mod5/4-frontend/.env.development
    - example-apps/mod5/4-frontend/next.config.ts
 
 1.  .env.development の NEXT_PUBLIC_URL に AWS SAM の出力の NextServerlessBackendAPI の値を設定する
