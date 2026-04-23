@@ -6,13 +6,12 @@
 ```
 sudo lsof -i :3000
 ```
-* PID が表示された場合、その値をメモしておく
-* ポート 3000 番を使用しているプロセスの ID の停止
-
-* 下記で <PID> を前の手順でメモした PID の値に置き換えて実行
-```
-kill -9 <PID>
-```
+    * PID が表示された場合、その値をメモしておく
+    * ポート 3000 番を使用しているプロセスの ID の停止
+    * 下記で <PID> を前の手順でメモした PID の値に置き換えて実行
+    ```
+    kill -9 <PID>
+    ```
 
 * Node.js のインストールの確認
 ```
@@ -56,6 +55,8 @@ npm run dev
 ```
 TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`  && curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/public-hostname
 ```
+
+* 表示された VS Code Server の EC2 インスタンスのパブリック IPv4 DNS の値は今後に使用するのでメモしておく
 
 * インスタンスのパブリック IPv4 DNS の 3000番ポートにブラウザから http でアクセスして、ページが表示されることを確認
 
