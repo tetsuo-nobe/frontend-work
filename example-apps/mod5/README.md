@@ -104,13 +104,10 @@ npx  create-next-app@15.3.0 next-serverless
       NEXT_PUBLIC_URL=https://ag9yn6s89e.execute-api.ap-northeast-1.amazonaws.com
       ```
 
-1. 下記のファイルを next-serverless へコピーする
-   - example-apps/mod5/4-frontend/next.config.ts
+1. 下記のファイルを開く
+   - next-serverless/next.config.ts
 
-1.  .env.development の NEXT_PUBLIC_URL に AWS SAM の出力の NextServerlessBackendAPI の値を設定する
-    - 例: NEXT_PUBLIC_URL=https://ag9yn6s89e.execute-api.ap-northeast-1.amazonaws.com
-
-1. next.config.ts の allowedDevOrigins に　Code Server のインスタンスの DNS を設定する
+1. next.config.ts に下記のように allowedDevOrigins でCode Server のインスタンスの DNS を追加設定する
     - 例:
     - ```
       import type { NextConfig } from "next";
