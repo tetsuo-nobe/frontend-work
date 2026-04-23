@@ -3,6 +3,21 @@
 ---
 ## AWS SAM でバックエンドリソースの作成する
 
+1. 下記のコマンドを実行して AWS SAM でバックエンドのリソースを作成する
+　
+    ```
+    cd  ~/environment/example-apps/mod5/1-sam/backend
+    ```
+
+    ```
+    sam  build --use-container
+    ```
+
+    ```
+    sam  deploy  --guided
+    ```
+
+1. SAM によるデプロイ完了時に表示される出力内容をメモしておく
 
 ---
 ## S3 バケットに商品画像をアップロードする
