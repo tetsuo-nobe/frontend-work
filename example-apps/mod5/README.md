@@ -6,7 +6,28 @@
 
 ---
 ## S3 バケットに商品画像をアップロードする
- 1. example-apps/mod5/2-upload-images/README.md の手順を実施する
+
+* AWS SDK for Python (boto3) のインストール
+
+```
+cd  ~/environment/example-apps/mod5/2-upload-images
+```
+
+```
+pip install boto3
+```
+
+* アップロードの実行
+    - 下記で **BUCKET_NAME** の部分を AWS SAM で作成したバケット名に変更して下さい。
+
+```
+python3 s3_image_uploader.py image BUKET_NAME --prefix ''
+```
+
+例
+```
+python3 s3_image_uploader.py image tnobep-backend-image --prefix ''
+```
 
 ---
 ## DynamoDB テーブルに商品情報を格納する
