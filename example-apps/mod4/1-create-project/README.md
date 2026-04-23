@@ -31,6 +31,16 @@ npx -v
 ```
 npx  create-next-app@15.3.0 next-hello
 ```
+    - 下記のように選択。（Yes と No は横矢印キーで選択）
+    - "OK to proceed?" で Enter 
+    - ? Would you like to use TypeScript? › No / Yes で **Yes**
+    - ? Would you like to use ESLint? › No / Yes で **No**
+    - ? Would you like to use Tailwind CSS? › No / Yes で **No**
+    - ? Would you like your code inside a `src/` directory? › No / Yes で **Yes**
+    - ? Would you like to use App Router? (recommended) › No / Yes で **Yes**
+    - ? Would you like to use Turbopack for `next dev`? › No / Yes で **No**
+    - ? Would you like to customize the import alias (`@/*` by default)? › No / Yes で **No**
+    
 
 * 実行
 
