@@ -6,7 +6,7 @@
 1. 下記のコマンドを実行して AWS SAM でバックエンドのリソースを作成する
 　
     ```
-    cd  ~/environment/example-apps/mod5/1-sam/backend
+    cd  ~/environment/frontend-work/example-apps/mod5/1-sam/backend
     ```
 
     ```
