@@ -58,8 +58,7 @@ npm run dev
 TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`  && curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/public-hostname
 ```
 
-
-* インスタンスのパブリック IPv4 DNS の 3000番ポートにブラウザから http でアクセス
+* インスタンスのパブリック IPv4 DNS の 3000番ポートにブラウザから http でアクセスして、ページが表示されることを確認
 
 例
 http://ec2-12-34-123-12.ap-northeast-1.compute.amazonaws.com:3000
