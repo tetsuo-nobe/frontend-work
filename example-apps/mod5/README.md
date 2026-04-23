@@ -96,7 +96,7 @@ npx  create-next-app@15.3.0 next-serverless
    - example-apps/mod5/4-frontend/.env.development
    - example-apps/mod5/4-frontend/next.config.ts
 
-1.  .env.development の NEXT_PUBLIC_URL に AWS SAM の出力の API Gateway のエンドポイントを設定する
+1.  .env.development の NEXT_PUBLIC_URL に AWS SAM の出力の NextServerlessBackendAPI の値を設定する
     - 例: NEXT_PUBLIC_URL=https://ag9yn6s89e.execute-api.ap-northeast-1.amazonaws.com
 
 1. next.config.ts の allowedDevOrigins に　Code Server のインスタンスの DNS を設定する
