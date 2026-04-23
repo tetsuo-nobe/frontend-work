@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>My shop</title>
+  <link rel="stylesheet" href="static/css/example.css" >
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="static/scripts/example.js"></script>
+</head>
+<body>
+  <h1>Welcome to my shop!</h1>
+  <h2>お知らせ</h2>
+  <ul>
+    <li>ポイント 3倍 キャンペーン実施中！</li>
+    <li>新規会員登録で 10% OFF クーポン 進呈！</li>
+  </ul>
+  <h2>新商品入荷</h2>
+  <table border="1">
+  <tr>
+  <th>発売日</th><th>商品</th>
+  </tr>
+  <tr>
+  <td>2024/02/01</td><td><a href="static/html/new_item1.html">パティシエ手作り 抹茶パウンドケーキ</a></td>
+  </tr>
+  <tr>
+  <td>2024/02/04</td><td><a href="static/html/new_item2.html">風味豊かな焼き菓子 フィナンシェ</a></td>
+  </tr>
+  </table>
+  <h2>タイムセール</h2>
+    <table border="1">
+    <tr>
+    <td>
+      <label>カテゴリ検索：
+         <select id="category">
+            <option value="book" selected>本・コミック・雑誌
+            <option value="pc">パソコン・周辺機器
+            <option value="food">食料・飲料・お酒
+          </select>  
+      </label>
+    </td>
+    <td>
+      <input type="button" value="検索" onclick="displayTable()" />
+    </td>
+    </tr>
+    </table>
+    <div id="timesale-container"></div>
+</body>
+</html>

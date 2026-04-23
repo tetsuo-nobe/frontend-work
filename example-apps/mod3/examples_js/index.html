@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>My shop</title>
+  <link rel="stylesheet" href="css/example.css" >
+  <script src="scripts/example.js"></script>
+</head>
+<body>
+  <H2>お支払方法の選択</H2>
+    <fieldset>
+      <legend>決済方法:</legend>
+      <div>
+        <input type="radio" name="payment" value="CashOnDelivery" onchange="handlePaymentChange(this)" checked />
+        <label>代金引換</label>
+      </div>
+
+      <div>
+        <input type="radio" name="payment" value="CreditCard" onchange="handlePaymentChange(this)" />
+        <label>クレジットカード</label>
+      </div>
+      <div id="div_cc" class="hidden">
+          <table>
+             <tr><td>カード番号：</td><td><input type="text" name="cc_number"/></td></tr>
+             <tr><td>カードの名義人：</td><td><input type="text" name="cc_name"/></td></tr>
+             <tr><td>有効年月(MM/YY)：</td><td><input type="text" size="6" name="cc_expire"/></td></tr>
+          </table>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>クーポンをお持ちの場合:</legend>    
+      <div>
+        <input type="checkbox" id="coupon" name="coupon" onchange="handleCouponChange(this)" />
+        <label for="coupon">クーポンを併用する</label>
+      </div>
+      <div id="div_cp" class="hidden">
+          <table>
+             <tr><td>クーポン番号：</td><td><input type="text" id="cp_number" name="cp_number"/></td></tr>
+          </table>
+      </div>
+    </fieldset>
+    <input type="button" value="設定" onClick="confirmPayment()" >
+</body>
+</html>
