@@ -25,7 +25,7 @@
 1. AWS SDK for Python (boto3) のインストール
 
     ```
-    cd  ~/environment/example-apps/mod5/2-upload-images
+    cd  ~/environment/frontend-work/example-apps/mod5/2-upload-images
     ```
 
     ```
@@ -47,14 +47,14 @@
 ---
 ## DynamoDB テーブルに商品情報を格納する
 
-1. ~/environment/example-apps/mod5/3-put-data/data_loader.py を開く
+1. ~/environment/frontend-work/example-apps/mod5/3-put-data/data_loader.py を開く
 
 1. your_bucket 変数に AWS SAM の Outputs の ItemImageURL の値から **https:// を除いた文字列**を貼り付ける
 
 1. AWS SDK for Python (boto3) はインストール済の前提
 
   ```
-  cd  ~/environment/example-apps/mod5/3-put-data
+  cd  ~/environment/frontend-work/example-apps/mod5/3-put-data
   ```
 
   ```
@@ -66,6 +66,7 @@
 ## Next.js で新しいプロジェクトを作成する
 
 ```
+cd  ~/environment
 npx  create-next-app@15.3.0 next-serverless
 ```
     
