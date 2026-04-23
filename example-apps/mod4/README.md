@@ -44,4 +44,23 @@
 1. ブラウザで、Code Server のインスタンスの DNS に http で 3000番ポートにアクセスする
    - Top ページと info ページで共通のヘッダー、フッターが表示されることを確認
 
-   
+1. ターミナルで Ctrl + c で停止
+
+## Next.js におけるバックエンドの処理の追加
+
+1. next-hello プロジェクトで、下記のファイルを削除する
+    - src/app/page.tsx
+
+1. 下記のファイルを next-hello/src/app へコピーする
+   - example-apps/mod4/3-components/api フォルダごと
+   - example-apps/mod4/3-components/page.tsx
+
+1. ターミナルから下記のコマンドで next-hello プロジェクトを実行する
+
+    ```
+    npm run dev
+    ```
+1. ブラウザで、Code Server のインスタンスの DNS に http で 3000番ポートにアクセスする
+   - Top ページで名前を入力して Greeting ボタンをクリックすると、「こんにちは！ (入力名)さん」と表示されることを確認
+
+1. ターミナルで Ctrl + c で停止
