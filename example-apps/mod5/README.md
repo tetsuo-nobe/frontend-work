@@ -18,7 +18,7 @@ pip install boto3
 ```
 
 * アップロードの実行
-    - 下記で **BUCKET_NAME** の部分を AWS SAM で作成したバケット名に変更して下さい。
+    - 下記で **BUCKET_NAME** の部分を AWS SAM で作成したバケット名に変更する
 
 ```
 python3 s3_image_uploader.py image BUKET_NAME --prefix ''
@@ -31,7 +31,21 @@ python3 s3_image_uploader.py image tnobep-backend-image --prefix ''
 
 ---
 ## DynamoDB テーブルに商品情報を格納する
-1. example-apps/mod5/3-put-data/README.md の手順を実施する
+
+* ~/environment/example-apps/mod5/3-put-data/data_loader.py を開きます。
+
+* your_bucket 変数に AWS SAM の Outputs の ItemImageURL の値から **https:// を除いた文字列**を貼り付ける
+
+* AWS SDK for Python (boto3) はインストール済の前提
+
+```
+cd  ~/environment/example-apps/mod5/3-put-data
+```
+
+```
+python3 data_loader.py 
+```
+
 
 ---
 ## Next.js で新しいプロジェクトを作成する
