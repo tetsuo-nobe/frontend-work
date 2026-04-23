@@ -1,0 +1,220 @@
+# Next-Serverless-Backend の AWS SAM テンプレート 
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  next-serverless-backend
+# グローバル
+Globals:
+  Function:
+    Timeout: 10
+# パラメータ
+Parameters:
+  BUCKETNAME: 
+    Description: "Amazon S3 Bucket name for images of items"
+    Type: String
+# リソース
+Resources:
+  # 全商品取得関数
+  GetAllFunction:
+    Type: AWS::Serverless::Function 
+    Connectors:
+      ReadItemTableConnector:
+        Properties:
+          Destination:
+            Id: ItemTable
+          Permissions:
+            - Read
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-getall"
+      CodeUri: getall/
+      Handler: app.lambda_handler
+      Runtime: python3.13
+      Architectures:
+        - x86_64
+      Environment: 
+        Variables:
+          TABLE_NAME: !Ref ItemTable
+      Events:
+        getall:
+          Type: Api 
+          Properties:
+            RestApiId: !Ref NextServerlessBackendAPI
+            Path: /item/getall
+            Method: get
+            Auth:
+              Authorizer: NONE
+  # 商品検索関数
+  SearchFunction:
+    Type: AWS::Serverless::Function 
+    Connectors:
+      ReadItemTableConnector:
+        Properties:
+          Destination:
+            Id: ItemTable
+          Permissions:
+            - Read
+    Properties:
+      FunctionName: !Sub "${AWS::StackName}-search"
+      CodeUri: search/
+      Handler: app.lambda_handler
+      Runtime: python3.13
+      Architectures:
+        - x86_64
+      Environment: 
+        Variables:
+          TABLE_NAME: !Ref ItemTable
+          CATEGORY_INDEX_NAME: !Sub "${AWS::StackName}-catrgory-itemName-index"
+      Events:
+        search:
+          Type: Api 
+          Properties:
+            RestApiId: !Ref NextServerlessBackendAPI
+            Path: /item/search
+            Method: post
+            Auth:
+              Authorizer: NONE
+  # API 
+  NextServerlessBackendAPI:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: next-serverless-backend-api
+      StageName: api
+      EndpointConfiguration:
+        Type: REGIONAL
+      Auth:
+        DefaultAuthorizer: CognitoAuthorizer
+        Authorizers:
+          CognitoAuthorizer:
+            UserPoolArn: !GetAtt UserPool.Arn
+        AddDefaultAuthorizerToCorsPreflight: False
+      GatewayResponses:
+        DEFAULT_5XX:
+          ResponseParameters:
+            Headers:
+              Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+              Access-Control-Allow-Origin: "'*'"
+              Access-Control-Allow-Methods: "'OPTIONS,GET,POST,PUT,DELETE'"
+          ResponseTemplates:
+            application/json: "{\"message\": \"Error $context.error.messageString \" }"
+        DEFAULT_4XX:
+          ResponseParameters:
+            Headers:
+              Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+              Access-Control-Allow-Origin: "'*'"
+              Access-Control-Allow-Methods: "'OPTIONS,GET,POST,PUT,DELETE'"
+          ResponseTemplates:
+            application/json: "{\"message\": \"Error $context.error.messageString \" }"            
+      Cors:
+        AllowOrigin: "'*'"
+        AllowMethods: "'OPTIONS,POST,PUT,GET,DELETE'"
+        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+  # 商品テーブル
+  ItemTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub "${AWS::StackName}-items"
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: "id"
+          AttributeType: "S"
+        - AttributeName: "category"
+          AttributeType: "S"
+        - AttributeName: "itemName"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "id"
+          KeyType: "HASH"
+      GlobalSecondaryIndexes:
+        - IndexName: !Sub "${AWS::StackName}-catrgory-itemName-index"
+          KeySchema:
+            - AttributeName: "category"
+              KeyType: "HASH"
+            - AttributeName: "itemName"
+              KeyType: "RANGE"
+          Projection:
+            ProjectionType: "ALL"
+  # 商品画像配信用バケット
+  ItemImageBucket:
+    Type: "AWS::S3::Bucket"
+    Properties:
+      BucketName: !Ref BUCKETNAME
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: False
+        BlockPublicPolicy: False
+        IgnorePublicAcls: False
+        RestrictPublicBuckets: False
+  ItemImageBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref ItemImageBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Action:
+              - "s3:GetObject"
+            Effect: Allow
+            Resource: !Sub "arn:aws:s3:::${ItemImageBucket}/*"
+            Principal: "*"
+  # Cognito User Pool
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      UserPoolName: !Sub "${AWS::StackName}-next-serverless-userpool"
+      UsernameAttributes:
+        - email
+      AutoVerifiedAttributes:
+        - email
+      Schema:
+        - Name: email
+          AttributeDataType: String
+          DeveloperOnlyAttribute: false
+          Mutable: true
+          Required: true
+      AccountRecoverySetting:
+        RecoveryMechanisms:
+          - Name: verified_email
+            Priority: 1
+      AdminCreateUserConfig:
+        AllowAdminCreateUserOnly: false
+      EmailConfiguration:
+        EmailSendingAccount: COGNITO_DEFAULT
+      # AliasAttributes:
+      #   - email
+      DeletionProtection: INACTIVE
+      Policies:
+        PasswordPolicy:
+          MinimumLength: 8
+          RequireLowercase: true
+          RequireNumbers: true
+          RequireSymbols: true
+          RequireUppercase: true
+  # Cognito User Pool Application Client
+  UserPoolAppClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      ClientName: !Sub "${AWS::StackName}-next-serverless-appclient"
+      GenerateSecret: false
+      RefreshTokenValidity: 30
+      ExplicitAuthFlows:
+        - ALLOW_USER_AUTH 
+        - ALLOW_USER_SRP_AUTH
+        - ALLOW_REFRESH_TOKEN_AUTH
+      UserPoolId:
+        Ref: UserPool
+Outputs:
+  # ItemImageBucket
+  ItemImageBucket:
+    Value: !Ref BUCKETNAME
+  ItemImageURL:
+    Value: !Sub "https://${BUCKETNAME}.s3.${AWS::Region}.amazonaws.com"
+  # API
+  NextServerlessBackendAPI:
+    Value: !Sub "https://${NextServerlessBackendAPI}.execute-api.${AWS::Region}.amazonaws.com"
+  # Cognito User Pool Id
+  UserPoolId:
+    Value: !Ref UserPool
+  # Cognito User Pool Application Client
+  UserPoolAppClient:
+    Value: !Ref UserPoolAppClient
+
+
