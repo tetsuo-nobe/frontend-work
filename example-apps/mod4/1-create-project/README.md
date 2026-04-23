@@ -64,4 +64,4 @@ TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metad
 例
 http://ec2-12-34-123-12.ap-northeast-1.compute.amazonaws.com:3000
 
-* ターミナルで Ctrl + c で停止
+* Next.js プロジェクトを実行した起動ターミナルで Ctrl + c で停止
