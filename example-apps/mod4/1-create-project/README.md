@@ -53,7 +53,7 @@ cd next-hello
 npm run dev
 ```
 
-* VS Code Server の EC2 インスタンスのパブリック IPv4 DNS を取得するコマンド
+* 新しいターミナルを起動し、VS Code Server の EC2 インスタンスのパブリック IPv4 DNS を取得するコマンドを実行
 ```
 TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`  && curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/public-hostname
 ```
