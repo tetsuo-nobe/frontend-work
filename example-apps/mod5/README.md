@@ -71,6 +71,7 @@ npx  create-next-app@15.3.0 next-serverless
 cd ~/environment/next-serverless
 ```
 
+---
 ## Next.js のページの作成
 
 ### 開発環境の環境変数とオリジンの設定
@@ -94,7 +95,7 @@ cd ~/environment/next-serverless
       export default nextConfig;
       ```
 
-
+---
 ### ページの編集
 
 1. 下記のファイルを next-serverless/src へコピーする
