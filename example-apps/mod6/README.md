@@ -67,6 +67,9 @@
 
 ### ページの編集
 
+1. 下記のファイルを削除する
+   - next-serverless/src/app/page.tsx
+
 1. 下記のファイルを next-serverless/src/app へコピーする
    - example-apps/mod6/2-auth/src/app/page.tsx
 
