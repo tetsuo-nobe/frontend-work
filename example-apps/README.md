@@ -35,27 +35,27 @@
 ## AWS CodeCommitの リポジトリへの push
 
 1. リモートリポジトリとして CodeCommit リポジトリを設定
-   - ```
-     cd ~/environment/next-serverless 
-     git remote add origin https://github.com/tetsuo-nobe/next-serverless.git
-     ```
+    - ```
+      cd ~/environment/next-serverless 
+      git remote add origin https://github.com/tetsuo-nobe/next-serverless.git
+      ```
 
 1. ステータスの確認
-   -　```
-     git branch -M main
-     git status
-     ```
+    - ```
+      git branch -M main
+      git status
+      ```
      
 1. コミット     
-   -  ```
-     git add .
-     git commit –m “add .env.production”
-     ```
+    -  ```
+       git add .
+       git commit –m “add .env.production”
+       ```
 
 1. リモートリポジトリへプッシュ     
-   - ```
-     git push -u origin main
-     ```
+    - ```
+      git push -u origin main
+      ```
 
 ## AWS Amplify ホスティングによるデプロイ
    
