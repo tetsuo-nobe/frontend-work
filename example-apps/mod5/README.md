@@ -126,7 +126,7 @@ npx  create-next-app@15.3.0 next-serverless
     - src/app/page.tsx
 
 
-1. 下記のファイルを next-hello/src/app へコピーする
+1. 下記のファイルを next-serverless/src/app へコピーする
    - example-apps/mod5/4-frontend/src/app/globals.css
    - example-apps/mod5/4-frontend/src/app/layout.tsx
    - example-apps/mod5/4-frontend/src/app/page.tsx
