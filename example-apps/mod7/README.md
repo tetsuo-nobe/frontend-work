@@ -54,7 +54,7 @@ aws codecommit create-repository --repository-name next-serverless --repository-
 #### 3-1. リモートリポジトリを追加
 
 ```bash
-cd next-serverless
+cd ~/environment/next-serverless
 git remote add origin codecommit://next-serverless
 ```
 
