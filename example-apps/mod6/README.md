@@ -1,4 +1,4 @@
-# 認証・認可の機能追加
+<img width="231" height="81" alt="image" src="https://github.com/user-attachments/assets/27e54b9d-b58c-4309-adcd-fa8a76c54eeb" /># 認証・認可の機能追加
 
 ## 前提
 
@@ -24,5 +24,83 @@
 1. AWS マネジメントコンソールで Amazon API Gateway の API の各 GET, POST のメソッドリクエストの認可設定で Congnitoのオーソライザーが設定されていることを確認 
 
 ## Next.js のページに認証機能を追加
+
+### Amplify UI Library のインストール
+
+   - ```
+     cd ~/environment/next-serverless
+     ```
+   
+   - ```
+     npm  install  @aws-amplify/ui-react  aws-amplify
+     ```
+
+### Cognito ユーザープールの情報の追加
+
+1. 下記のファイルを next-serverless/src/utils へコピーする
+   - example-apps/mod6/2-auth/src/utils/aws-exports.ts
+   - aws-exports.ts に SAM のデプロイ完了時に表示された Cognito ユーザープールの ID やユーザープールクライアント ID の値に置き換え
+   - 例
+   - ```
+     const awsconfig = {
+     Auth: {
+       Cognito: {
+         userPoolClientId: '4abc9abcd876abcdefg764abc2a',
+         userPoolId: 'us-west-2_abcdefg',
+        }
+      }
+     }
+
+     export default awsconfig;
+     ```
+
+### Amplify UI Library の日本語用マッピングファイル作成
+
+1. 下記のファイルを next-serverless/src へコピーする
+   - example-apps/mod6/2-auth/src/translations フォルダごと
+
+### ページの編集
+
+1. 下記のファイルを next-serverless/src/app へコピーする
+   - example-apps/mod6/2-auth/src/app/page.tsx
+
+### 実行
+
+1. ターミナルから下記のコマンドで next-serverless プロジェクトを実行する
+
+  ```
+  cd ~/environment/next-serverless
+  ```
+
+  ```
+  npm run dev
+  ```
+
+1. ブラウザで、Code Server のインスタンスの DNS に http で 3000番ポートにアクセスする
+   - Amplify UI Library によるサインイン・サインアップページが表示されることを確認
+
+1. サインアップタブを選択してユーザー登録
+    * サインアップで受信可能なメールアドレスを指定
+    * パスワード要件
+      - 8 文字以上
+      - 最低 1つの数字を含む
+      - 最低 1つの大文字を含む
+      - 最低 1つの小文字を含む
+      - 最低 1つの特殊文字を含む
+
+1. サインアップ後、商品検索ページが表示され、ページ右上にサインインユーザー ID とサインアウトボタンが表示されることを確認
+
+1. 商品検索機能を確認
+
+1. サインアウトボタンをクリック   
+
+1. ターミナルで Ctrl + c で停止
+
+
+
+
+
+
+
 
 
