@@ -36,7 +36,7 @@
 未インストールの場合は、下記で事前にインストールする
 
 ```bash
-pip install git-remote-codecommit
+pip3 install git-remote-codecommit
 ```
 
 ### 2. AWS CodeCommit リポジトリの作成
