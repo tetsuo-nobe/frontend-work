@@ -30,31 +30,64 @@
 
 ## AWS CodeCommitの リポジトリの作成
 
+### 1. 事前準備
 
-## AWS CodeCommitの リポジトリへの push
+ここでは CodeCommit への接続に `git-remote-codecommit` を使用する。
+未インストールの場合は、下記で事前にインストールする
 
-1. リモートリポジトリとして CodeCommit リポジトリを設定
-    - ```
-      cd ~/environment/next-serverless 
-      git remote add origin https://github.com/tetsuo-nobe/next-serverless.git
-      ```
+```bash
+pip install git-remote-codecommit
+```
 
-1. ステータスの確認
-    - ```
-      git branch -M main
-      git status
-      ```
-     
-1. コミット     
-    -  ```
-       git add .
-       git commit –m “add .env.production”
-       ```
+### 2. AWS CodeCommit リポジトリの作成
 
-1. リモートリポジトリへプッシュ     
-    - ```
-      git push -u origin main
-      ```
+AWS CLI を使用して `next-serverless` リポジトリを作成する
+
+```bash
+aws codecommit create-repository --repository-name next-serverless --repository-description "Next.js を使用した商品検索のフロントエンド"
+```
+
+### 3. ローカルリポジトリにリモートリポジトリを追加
+
+既存のローカル `next-serverless` ディレクトリに CodeCommit リポジトリをリモートとして追加する
+
+#### 3-1. リモートリポジトリを追加
+
+```bash
+cd next-serverless
+git remote add origin codecommit://next-serverless
+```
+
+#### 3-2. リモート設定の確認
+
+```bash
+git remote -v
+```
+
+以下のように表示されれば設定完了
+
+```
+origin  codecommit://next-serverless (fetch)
+origin  codecommit://next-serverless (push)
+```
+
+### 4. main ブランチをデフォルトブランチに設定
+
+#### 4-1. main ブランチを push
+
+CodeCommit のデフォルトブランチは、最初に push されたブランチが自動的に設定される
+`main` ブランチで最初の push を行う
+
+```bash
+git push -u origin main
+```
+
+#### 4-2. デフォルトブランチを main に変更（確認・明示的に設定）
+
+```bash
+aws codecommit update-default-branch --repository-name next-serverless --default-branch-name main
+```
+
 
 ## AWS Amplify ホスティングによるデプロイ
    
