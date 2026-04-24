@@ -45,7 +45,7 @@
 
 1. 下記のファイルを next-serverless/src/utils へコピーする
    - example-apps/mod6/2-auth/src/utils/aws-exports.ts
-   - aws-exports.ts に SAM のデプロイ完了時に表示された Cognito ユーザープールの ID やユーザープールクライアント ID の値に置き換え
+1. aws-exports.ts に SAM のデプロイ完了時に表示された Cognito ユーザープールの ID やユーザープールクライアント ID の値に置き換え
    - 例
    - ```
      const awsconfig = {
