@@ -4,7 +4,7 @@
 
 * mod5 で next-serverless プロジェクトの作成を完了していること
 
-##　バックエンドの API の認可設定
+## バックエンドの API の認可設定
 
 1. API への認可設定
    - mod5 で既に Cognito ユーザープールを作成し、Amazon API Gateway の API にも Cognito オーソライザー設定済。
