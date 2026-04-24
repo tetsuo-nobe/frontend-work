@@ -10,9 +10,10 @@
    - mod5 で既に Cognito ユーザープールを作成し、Amazon API Gateway の API にも Cognito オーソライザー設定済。
    - しかし、現在は、各 API でオーソライザーの認可を使用する設定にはなっていない。
    - そこで、APIに認可を行う設定に変更する
-   - SAM テンプレートで、関数の Event の Auth設定をコメントにする（frontend-work/example-apps/mod5/1-sam/backend/template.yaml で 2カ所）
-       1. テンプレート　44行目から
-       1. テンプレート  74行目から
+   - SAM テンプレートで、関数の Event の Auth設定をコメントにする
+   - （frontend-work/example-apps/mod5/1-sam/backend/template.yaml で 2カ所）
+       1. テンプレート　44行目から 45行目の Auth: Authorizer: NONE の設定
+       1. テンプレート  74行目から 75行目の Auth: Authorizer: NONE の設定
        1. AWS SAM でデプロイ 
           - ```
             cd ~/environment/frontend-work/example-apps/mod5/1-sam/backend
