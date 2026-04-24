@@ -25,8 +25,7 @@
 
      # env files (can opt-in for committing if needed)
      .env.development
-     
-    （以降は略）
+     （以降は略）
      ```
 
 ## AWS CodeCommitの リポジトリの作成
