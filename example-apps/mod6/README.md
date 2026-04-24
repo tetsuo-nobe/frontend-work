@@ -18,10 +18,15 @@
           - ```
             cd ~/environment/frontend-work/example-apps/mod5/1-sam/backend
             sam validate
-
-            sam deploy
+            ```
+            
+          - ```
+            sam build --use-container
             ```
 
+          - ```
+            sam deploy
+            ```
 1. AWS マネジメントコンソールで Amazon API Gateway の API の各 GET, POST のメソッドリクエストの認可設定で Congnitoのオーソライザーが設定されていることを確認 
 
 ## Next.js のページに認証機能を追加
