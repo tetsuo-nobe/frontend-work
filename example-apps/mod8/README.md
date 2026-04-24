@@ -18,13 +18,13 @@ aws codecommit delete-repository --repository-name next-serverless
 
 ## 3. S3 バケットのオブジェクトを削除
 
-AWS SAM で作成した S3 バケット（ImageBucket）内のすべてのオブジェクトを削除する。
+AWS SAM で作成した S3 バケット内のすべてのオブジェクトを削除する。
 
 ```bash
 aws s3 rm s3://<バケット名> --recursive
 ```
 
-> `<バケット名>` は実際に作成した S3 バケット名に置き換える。
+> `<バケット名>` は実際に作成した S3 バケット名（SAM 出力の ItemImageBucket の値）に置き換える。
 
 ## 4. SAM で作成したバックエンドリソースを削除
 
