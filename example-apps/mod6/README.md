@@ -27,7 +27,7 @@
           - ```
             sam deploy
             ```
-1. AWS マネジメントコンソールで Amazon API Gateway の API の各 GET, POST のメソッドリクエストの認可設定で Congnitoのオーソライザーが設定されていることを確認 
+1. AWS マネジメントコンソールで Amazon API Gateway の next-serverless-backend-api の各 GET, POST のメソッドリクエストの認可設定で Congnitoのオーソライザーが設定されていることを確認 
 
 ## Next.js のページに認証機能を追加
 
