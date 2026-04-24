@@ -1,4 +1,4 @@
-<img width="231" height="81" alt="image" src="https://github.com/user-attachments/assets/27e54b9d-b58c-4309-adcd-fa8a76c54eeb" /># 認証・認可の機能追加
+# 認証・認可の機能追加
 
 ## 前提
 
